@@ -7,14 +7,14 @@ import dynamic from 'next/dynamic'
 import { Spinner } from '@/components/spinner'
 
 const DetailForm = dynamic(() => import('./account-details-form'), {
-  ssr: false,
-  loading: Spinner,
-})
+    ssr: false,
+    loading: ({ isLoading }) => isLoading ? <Spinner noPadding={false} /> : null
+});
 
 const OTPForm = dynamic(() => import('./otp-form'), {
   ssr: false,
-  loading: Spinner,
-})
+  loading: ({ isLoading }) => isLoading ? <Spinner noPadding={false} /> : null
+});
 
 type Props = {}
 
